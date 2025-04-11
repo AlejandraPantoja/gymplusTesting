@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // <-- Necesario para ngModel
-import { CommonModule } from '@angular/common'; // <-- Necesario para *ngIf
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -14,6 +15,7 @@ export class LoginComponent {
   username = '';
   password = '';
   error = '';
+  email: string = '';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -22,14 +24,12 @@ export class LoginComponent {
       email: this.username,
       contrasena: this.password
     };
-  
+
     this.http.post('http://localhost:8000/login/', body, { withCredentials: true })
       .subscribe({
         next: (res: any) => {
-          // 👇 Guarda el ID del miembro en localStorage
           localStorage.setItem('userId', res.miembro_id);
-      localStorage.setItem('userName', res.nombre);         // 👈 Guardamos el nombre
-          // Redirige al dashboard
+          localStorage.setItem('userName', res.nombre);
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
@@ -37,6 +37,7 @@ export class LoginComponent {
         }
       });
   }
+
   irARegistro(): void {
     this.router.navigate(['/registro']);
   }

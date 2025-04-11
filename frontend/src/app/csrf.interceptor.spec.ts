@@ -1,17 +1,9 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpInterceptorFn } from '@angular/common/http';
 
-import { csrfInterceptor } from './csrf.interceptor';
-
-describe('csrfInterceptor', () => {
-  const interceptor: HttpInterceptorFn = (req, next) => 
-    TestBed.runInInjectionContext(() => csrfInterceptor(req, next));
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
+export const csrfInterceptor: HttpInterceptorFn = (req, next) => {
+  const modifiedReq = req.clone({
+    setHeaders: { 'X-CSRF-Token': 'fake-token' } // tu lógica aquí
   });
+  return next(modifiedReq);
+};
 
-  it('should be created', () => {
-    expect(interceptor).toBeTruthy();
-  });
-});

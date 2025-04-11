@@ -1,0 +1,17 @@
+test_contrasena_almacenada (miembros.tests.MiembroModelTest.test_contrasena_almacenada) ... ok
+✔ PASÓ: test_contrasena_almacenada (miembros.tests.MiembroModelTest.test_contrasena_almacenada)
+test_email_unique (miembros.tests.MiembroModelTest.test_email_unique) ... ok
+✔ PASÓ: test_email_unique (miembros.tests.MiembroModelTest.test_email_unique)
+test_fecha_registro_auto (miembros.tests.MiembroModelTest.test_fecha_registro_auto) ... ok
+✔ PASÓ: test_fecha_registro_auto (miembros.tests.MiembroModelTest.test_fecha_registro_auto)
+test_relacion_membresia (miembros.tests.MiembroModelTest.test_relacion_membresia) ... ok
+✔ PASÓ: test_relacion_membresia (miembros.tests.MiembroModelTest.test_relacion_membresia)
+test_str_representation (miembros.tests.MiembroModelTest.test_str_representation) ... ok
+✔ PASÓ: test_str_representation (miembros.tests.MiembroModelTest.test_str_representation)
+test_telefono_content (miembros.tests.MiembroModelTest.test_telefono_content) ... ok
+✔ PASÓ: test_telefono_content (miembros.tests.MiembroModelTest.test_telefono_content)
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.007s
+
+OK

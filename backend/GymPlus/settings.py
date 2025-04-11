@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TEST_RUNNER = 'miembros.custom_test_runner.PlainTextTestRunner'
 
 # Application definition
 
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'GymPlus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbgymplus',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '123',
         'HOST': 'localhost',
